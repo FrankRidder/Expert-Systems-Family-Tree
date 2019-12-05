@@ -1,8 +1,9 @@
 
 # Expert Systems Prolog Example
 ## Dependencies
-Download and install SWI-Prolog from [here](https://www.swi-prolog.org/download/stable).
-##Usage
+Download and install SWI-Prolog from [here](https://www.swi-prolog.org/download/stable).  
+
+##Usage  
 To define a child and parent use within the family.pl file:
 ```
 parent(child, parent).
