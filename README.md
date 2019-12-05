@@ -43,5 +43,5 @@ siblings_of_parents(frank, Who).
 ```
 To get the cousins of X use (e.g frank):
 ```
-spouse(frank, Who).
+cousins(frank, Who).
 ```
