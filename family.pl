@@ -32,12 +32,38 @@ parent(mathijs, liesbeth).
 parent(eva, jan_2).
 parent(eva, liesbeth).
 
+parent(anita, sjaan).
+parent(anita, theo).
+
+parent(carlos, meindert).
+parent(carlos, willem).
+
+parent(sandra, sjaan).
+parent(sandra, theo).
+
+parent(eric, sjaan).
+parent(eric, theo).
+
+parent(lars, sandra).
+parent(lars, rob).
+
+parent(pelayo, eric).
+parent(pelayo, teresse).
+
+parent(dennis, carlos).
+parent(dennis, anita).
 
 parents(X, Y):-
     findall(Z, parent(X, Z), Y).
 
-siblings(X, Y):- parent(X, Z),
-    findall(INPUT, parent(INPUT, Z), [_|Y]).
+sibling(X, Y):-
+    parent(X, M),
+    parent(Y, M),
+    X \= Y.
+
+siblings(X, Y):- 
+    findall(INPUT, sibling(X, INPUT), S),
+    sort(S, Y).
 
 grandparents(X, Z1, Z2):-
     parent(X,Y1),
