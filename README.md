@@ -8,7 +8,7 @@ To define a child and parent use within the family.pl file:
 ```
 parent(child, parent).
 ```
-Go to the project folder in and use `swipl` while in a terminal to access SWI-Prolog.
+Go to the project folder and use `swipl` while in a terminal to access SWI-Prolog.
 While in `swipl` use `[family].` to load in the family tree file.
 
 
