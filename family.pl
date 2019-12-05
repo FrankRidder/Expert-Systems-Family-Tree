@@ -1,9 +1,7 @@
+%Created by Frank Ridder and Vincent Kenbeek
 
 parent(frank, willem).
 parent(frank, ina).
-
-parent(vincent, carlos).
-parent(vincent, anita).
 
 parent(ina, jan_1).
 parent(ina, vera).
@@ -32,8 +30,44 @@ parent(mathijs, liesbeth).
 parent(eva, jan_2).
 parent(eva, liesbeth).
 
+parent(sorin, jennie).
 parent(anita, sjaan).
 parent(anita, theo).
+
+parent(thijs, kees).
+parent(thijs, joke).
+
+parent(jens, kees).
+parent(jens, joke).
+
+parent(bart, kees).
+parent(bart, joke).
+
+parent(mariel, dick).
+parent(mariel, mary).
+
+parent(stijn, mariel).
+parent(stijn, olaf).
+
+parent(gijs, mariel).
+parent(gijs, olaf).
+
+parent(adrie, jan_1).
+parent(adrie, vera).
+
+parent(johan, adrie).
+parent(johan, els).
+
+parent(peter, adrie).
+parent(peter, els).
+
+parent(rick, peter).
+parent(mark, peter).
+parent(silvia, peter).
+parent(rick, marga).
+parent(mark, marga).
+parent(silvia, marga).
+
 
 parent(carlos, meindert).
 parent(carlos, willem).
@@ -92,10 +126,6 @@ offspring(X, Y):-
 
 children(X, Y):-
     findall(INPUT, parent(INPUT, X), Y).
-
-%offspring(X, Y):-
-%    parent(Y, Z) ,
-%    offspring(X, Z).
 
 offspring_full(X, Z):-
     findall(Y,offspring(X,Y),Z).
