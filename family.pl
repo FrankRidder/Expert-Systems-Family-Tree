@@ -64,32 +64,40 @@ ancestors(X, Z):-
 offspring(X, Y):-
     parent(Y, X).
 
-offspring(X, Y):-
-    parent(Y, Z) ,
-    offspring(X, Z).
+children(X, Y):-
+    findall(INPUT, parent(INPUT, X), Y).
 
-%Gaat recusief naar beneden door de familieboom
+%offspring(X, Y):-
+%    parent(Y, Z) ,
+%    offspring(X, Z).
+
 offspring_full(X, Z):-
     findall(Y,offspring(X,Y),Z).
 
-% vind spouse van X door te kijken wie een child is van X, C vind alle ouders van C en stop ze in Y
 spouse(X, Y):-
     parent(C, X),
     findall(Z, parent(C, Z), [_|Y]).
-%Returned een list met daarin een list per parent met daarin de siblings maar dan 4x voor welke reden dan ook. Als in je kan 4x op next drukken
-%siblings_of_parent(X, Y):-
- %   parents(X, Z),
-  %  maplist(siblings, Z, [List1|[List2|_]]),
-   % append(List1, List2, Y).
-%Returned een list met daarin een list per parent met daarin de siblings
-%Misschien kan je dit nog netter krijgen
-siblings_of_parent(X, Y):-
-    parents(X, Z),
-    findall(INPUT, maplist(siblings, Z, INPUT), [Y|[_|[_|[_|_]]]]).
 
-%Hier moet doen nog iets komen wat of de lists in lists uitleest of al je het mooier krijgt gewoon offspring uitvoert voor elke sibling
+get_parents_siblings([], Result, Z):- Result = Z.
+
+get_parents_siblings([P|Parents], Result, Z):-
+    siblings(P, S),
+    append(S, Z, X),
+    get_parents_siblings(Parents, Result, X).
+
+get_children([], Result, Z):- Result = Z.
+
+get_children([P|Parents], Result, Z):-
+    children(P, O),
+    append(O, Z, X),
+    get_children(Parents, Result, X).
+
+siblings_of_parents(X, Y):-
+    parents(X, Z),
+    get_parents_siblings(Z, Y, []).
+
 cousins(X, Y):-
-    siblings_of_parent(X, Y).
-    %maplist(offspring, Z, Y),
-    %append(List1, List2, Y).
+    siblings_of_parents(X, AU),
+    get_children(AU, Y, []).
+    
 
