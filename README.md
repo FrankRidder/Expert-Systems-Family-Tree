@@ -1,8 +1,13 @@
 
 # Expert Systems Prolog Example
+This system is enirly gender free and supports that a child can have 1 or more parents.   
+
+The system uses forward chaining to find the parent of a child.   
+The system uses backward chaining to find the child of a parent.  
 ## Dependencies
 Download and install SWI-Prolog from [here](https://www.swi-prolog.org/download/stable).  
 
+SWI-Prolog is a free implementation of the programming language Prolog, commonly used for teaching and semantic web applications. It has been under continuous development since 1987. Its main author is Jan Wielemaker.
 ## Usage  
 To define a child and parent use within the family.pl file:
 ```
