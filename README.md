@@ -2,8 +2,9 @@
 # Expert Systems Prolog Example
 This system is enirly gender free and supports that a child can have 1 or more parents.   
 
-The system uses forward chaining to find the parent of a child.   
-The system uses backward chaining to find the child of a parent.  
+The difference between forward and backward chaining is that  backward chaining starts with a goal and then searches back through inference rules to find the facts that support the goal while forward chaining starts with facts and searches forward through the rules to find a desired goal.
+In our example backward chaining would be saying that mathijs is a cousin of frank and to then go through the family tree to find facts that support that statement, here that would be one of franks parents is a sibling of one of mathijs' parents. But with forward chaining we would say that jan_2 and ina are siblings and then look for a goal, for example finding all children of these two and thus finding out that frank and mathijs are cousins.
+
 ## Dependencies
 Download and install SWI-Prolog from [here](https://www.swi-prolog.org/download/stable).  
 
