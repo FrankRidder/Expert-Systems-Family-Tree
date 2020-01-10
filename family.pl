@@ -176,4 +176,7 @@ cousins(X, Y):-
     siblings_of_parents(X, AU),
     get_children(AU, Y, []).
     
+are_cousins(X, Y):-
+    cousins(X, C),
+    member(Y, C).
 
